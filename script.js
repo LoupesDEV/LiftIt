@@ -1,4 +1,4 @@
-// Clé utilisée dans le LocalStorage
+
 const STORAGE_KEY = 'simracingConfig';
 
 let currentConfig = {
