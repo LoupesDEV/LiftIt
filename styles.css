@@ -59,7 +59,90 @@ h1 {
     border-bottom: 3px solid var(--primary-color);
     padding-bottom: 5px;
     margin-bottom: 20px;
+    display: block;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 12px 48px 12px 12px;
+    border-radius: 6px;
+    transition: background-color 180ms ease, color 180ms ease;
 }
+
+/* Style the wrapping details so the summary looks like the previous H2/title */
+details.category-section {
+    margin-bottom: 12px;
+}
+
+/* Remove default triangle marker for summary to keep a clean look */
+.category-title::-webkit-details-marker {
+    display: none;
+}
+.category-title::marker {
+    content: none;
+}
+
+/* Add a chevron icon to the summary via a pseudo-element */
+.category-title {
+    position: relative;
+    padding-right: 36px;
+}
+
+.category-title::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    transform: translateY(-50%) rotate(-45deg);
+    transition: transform 180ms ease, border-color 180ms ease;
+    pointer-events: none;
+}
+
+details[open] .category-title::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+details.category-section summary.category-title::before {
+    content: "Click to expand";
+    position: absolute;
+    right: 34px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+details[open].category-section summary.category-title::before {
+    content: "Cliquer pour masquer";
+    color: var(--primary-color);
+}
+
+details.category-section summary.category-title:hover,
+details.category-section summary.category-title:focus {
+    background-color: rgba(179,27,27,0.06);
+    border-bottom-color: rgba(179,27,27,0.85);
+}
+
+details.category-section summary.category-title:focus {
+    outline: 3px solid rgba(179,27,27,0.12);
+    outline-offset: 2px;
+}
+
+details[open] .category-title::after {
+    border-color: var(--primary-color);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+details.category-section summary.category-title {
+    display: block;
+    padding: 12px 12px 12px 0;
+    margin: 0 0 12px 0;
+}
+
+details.category-section summary::-webkit-details-marker { display: none; }
 
 .card-container {
     display: grid;

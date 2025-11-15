@@ -86,8 +86,8 @@ window.filterConfiguration = function () {
         document.querySelectorAll('.item-card').forEach(card => {
             card.style.display = 'flex';
         });
-        document.querySelectorAll('.category-title').forEach(title => {
-            title.style.display = 'block';
+        document.querySelectorAll('details.category-section').forEach(details => {
+            details.style.display = '';
         });
         return;
     }
@@ -108,11 +108,12 @@ window.filterConfiguration = function () {
 
     document.querySelectorAll('.category-title').forEach(title => {
         const categoryKey = title.dataset.category;
+        const details = title.closest('details.category-section');
 
         if (categoryHasVisibleItems[categoryKey]) {
-            title.style.display = 'block';
+            if (details) details.style.display = '';
         } else {
-            title.style.display = 'none';
+            if (details) details.style.display = 'none';
         }
     });
 }
@@ -207,15 +208,16 @@ function renderConfiguration() {
         const categoryPlural = categoryKey.toLowerCase();
         const categorySingular = categoryMap[categoryPlural];
 
-        const section = document.createElement('div');
-        section.innerHTML = `
-            <h2 class="category-title" data-category="${categoryKey}">${categoryNames[categoryKey]}</h2>
-            <div id="cards-${categoryPlural}" class="card-container">
-            </div>
+        const details = document.createElement('details');
+        details.className = 'category-section';
+        details.dataset.category = categoryKey;
+        details.innerHTML = `
+            <summary class="category-title" data-category="${categoryKey}">${categoryNames[categoryKey]}</summary>
+            <div id="cards-${categoryPlural}" class="card-container"></div>
         `;
-        configSections.appendChild(section);
+        configSections.appendChild(details);
 
-        const cardContainer = document.getElementById(`cards-${categoryPlural}`);
+        const cardContainer = details.querySelector(`#cards-${categoryPlural}`);
 
         categoryData.forEach(item => {
             const card = document.createElement('div');
@@ -249,6 +251,19 @@ function renderConfiguration() {
 
             card.addEventListener('click', handleCardSelection);
             cardContainer.appendChild(card);
+        });
+    });
+
+    document.querySelectorAll('details.category-section').forEach(details => {
+        const summary = details.querySelector('summary.category-title');
+        if (!summary) return;
+
+        summary.setAttribute('role', 'button');
+        summary.setAttribute('tabindex', '0');
+        summary.setAttribute('aria-expanded', details.open ? 'true' : 'false');
+
+        details.addEventListener('toggle', () => {
+            summary.setAttribute('aria-expanded', details.open ? 'true' : 'false');
         });
     });
 
