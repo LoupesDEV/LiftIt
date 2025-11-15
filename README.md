@@ -1,3 +1,4 @@
+
 <div align="center">
     <img src="assets/logo.png" width="200">
 </div>
@@ -5,7 +6,7 @@
 <h1 align="center">LiftIt</h1>
 
 <div align="center">
-   <p>Application web légère pour configurer et estimer une configuration simracing (bundles, cockpits, sièges et accessoires).</p>
+   <p>Lightweight web application to configure and estimate a simracing setup (bundles, cockpits, seats and accessories).</p>
    <img src="https://m3-markdown-badges.vercel.app/stars/9/3/LoupesDEV/LiftIt">
    <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/HTML/html3.svg">
    <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/CSS/css3.svg">
@@ -13,87 +14,90 @@
    <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/JSON/json3.svg">
 </div>
 
-## Table des matières
+## Table of contents
 
-- [Présentation](#présentation)
-- [Comment utiliser](#comment-utiliser)
-- [Fonctionnalités](#fonctionnalités)
-- [Démonstration locale](#démonstration-locale)
-- [Structure du projet](#structure-du-projet)
-- [Contribuer](#contribuer)
+- [Overview](#overview)
+- [How to use](#how-to-use)
+- [Features](#features)
+- [Local demo](#local-demo)
+- [Project structure](#project-structure)
+- [Contributing](#contributing)
 
-## Présentation
+## Overview
 
-LiftIt est une interface client simple pour construire une configuration simracing en sélectionnant un bundle, un cockpit, un siège et des accessoires. L'application calcule le total estimé, conserve la sélection dans le navigateur (LocalStorage) et propose un résumé clair.
+LiftIt is a simple client-side interface to build a simracing configuration by selecting a bundle, a cockpit, a seat, and accessories. The app calculates the estimated total, persists the selection in the browser (`localStorage`), and provides a clear summary.
 
-L'interface est conçue pour être utilisée directement dans le navigateur sans backend nécessaire.
+The interface is designed to run directly in the browser without any backend.
 
-## Comment utiliser
+## How to use
 
-1. Cloner le dépôt :
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/LoupesDEV/LiftIt.git
 ```
 
-2. Ouvrir l'application :
+2. Open the application:
 
-- Avec **VSCode** : clic-droit sur `index.html` → *Open with Live Server* (extension recommandée).
-- Avec **Python** (serveur local simple) :
+- With **VSCode**: right-click `index.html` → *Open with Live Server* (extension recommended).
+- With **Python** (simple local server):
 
-```powershell
+```bash
 python -m http.server 8000
-# puis ouvrir http://localhost:8000
+# then open http://localhost:8000
 ```
 
-3. Naviguer dans l'interface, sélectionner les éléments souhaités et consulter le résumé dans le panneau de droite.
+3. Browse the interface, select the desired items and check the summary in the right-hand panel.
 
-## Fonctionnalités
+## Features
 
-- **Sélection simple** : Choix d'un bundle, d'un cockpit, d'un siège et d'accessoires.
-- **Sélection multiple pour accessoires** : Ajouter/supprimer plusieurs accessoires.
-- **Résumé dynamique** : Aperçu instantané de la sélection (noms et prix).
-- **Calcul du total** : Somme automatique des articles sélectionnés.
-- **Persistance côté client** : Sauvegarde de la configuration dans `localStorage` pour reprise ultérieure.
-- **Réinitialisation** : Bouton pour remettre la configuration à zéro.
-- **Liens produits** : Les cartes peuvent contenir un lien vers la page du produit (ouverture dans un nouvel onglet).
+- **Simple selection**: Choose a bundle, a cockpit, a seat and accessories.
+- **Multiple accessory selection**: Add/remove multiple accessories.
+- **Dynamic summary**: Instant preview of the selection (names and prices).
+- **Total calculation**: Automatic sum of selected items.
+- **Client-side persistence**: Save the configuration in `localStorage` for later.
+- **Reset**: Button to reset the configuration to zero.
+- **Product links**: Cards may include a link to the product page (opens in a new tab).
 
-## Démonstration locale
+## Local demo
 
-Vous pouvez tester l'application [ici](https://www.matheo-pichotmoise.fr/LiftIt).
+You can try the app [here](https://www.matheo-pichotmoise.fr/LiftIt).
 
 <div align="center">
     <table>
         <tr>
-            <td><img src="assets/accueil.png" alt="Page d'accueil"/></td>
-            <td><img src="assets/selection.png" alt="Page de lecture"/></td>
+            <td><img src="assets/welcome.png" alt="Welcome modal"/></td>
+            <td><img src="assets/home.png" alt="Home page"/></td>
+        </tr>
+        <tr>
+            <td><img src="assets/search.png" alt="Search example"/></td>
+            <td><img src="assets/config.png" alt="Config summary"/></td>
         </tr>
     </table>
 </div>
 
-## Structure du projet
+## Project structure
 
 ```
 LiftIt
-├─ assets/                # Dossier contenant les médias
-├─ CODE_OF_CONDUCT.md     # Code de conduite pour les contributeurs
-├─ CONTRIBUTING.md        # Guide de contribution
-├─ data.json              # Données des équipements
-├─ index.html             # Page principale l'application
-├─ LICENSE                # Fichier de licence
-├─ README.md              # Documentation du projet
-├─ script.js              # Fichier de script
-└─ styles.css             # Fichier de styles
+├─ assets/                # Folder containing media
+├─ CODE_OF_CONDUCT.md     # Code of conduct for contributors
+├─ CONTRIBUTING.md        # Contribution guide
+├─ data.json              # Equipment data
+├─ index.html             # Main application page
+├─ LICENSE                # License file
+├─ README.md              # Project documentation
+├─ script.js              # Script file
+└─ styles.css             # Styles file
 ```
 
-# Contributeurs
+## Contributors
 
-Merci aux personnes et ressources ayant contribué au projet:
+Thanks to the people and resources that contributed to the project:
 
-- [LoupesDEV](https://github.com/LoupesDEV) — Développement principal, conception et maintenance.
+- [LoupesDEV](https://github.com/LoupesDEV) — Main development, design and maintenance.
 
-Vous souhaitez contribuer ? Consultez le [guide de contribution](CONTRIBUTING.md) ou ouvrez une *issue* pour proposer
-des améliorations.
+Want to contribute? Check the [contribution guide](CONTRIBUTING.md) or open an *issue* to propose improvements.
 
 <p align="center">
     <img alt="Footer" src="https://i.imgur.com/9Ojjug7.png">
