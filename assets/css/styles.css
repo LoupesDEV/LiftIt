@@ -116,7 +116,7 @@ details.category-section summary.category-title::before {
 }
 
 details[open].category-section summary.category-title::before {
-    content: "Cliquer pour masquer";
+    content: "Click to collapse";
     color: var(--primary-color);
 }
 
